@@ -3,6 +3,7 @@ require 'raven'
 require 'metriks'
 require 'metriks/reporter/graphite'
 require 'zip'
+require 'sidekiq'
 
 require 'package_provider/config'
 
@@ -35,6 +36,8 @@ module PackageProvider
     def setup
       @start_time = Time.now
       logger.level = config.log_level || Logger::WARN
+      Sidekiq.default_worker_options = { 'backtrace' => true } if
+        config.log_level == Logger::DEBUG
       setup_raven
       setup_metriks
       setup_zip

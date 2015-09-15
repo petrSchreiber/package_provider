@@ -121,7 +121,7 @@ class App < Sinatra::Base
         s << fo.source
       end
 
-      local_path = PackageProvider::RepositoryCacheList.find(req.repo)
+      local_path = PackageProvider::RepositoryCacheList.find(req.repo)[:cache_dir]
 
       repo = PackageProvider::CachedRepository.new(req.repo, local_path)
       checkout_dir = repo.cached_clone(

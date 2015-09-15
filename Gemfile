@@ -16,6 +16,7 @@ gem 'sinatra',          '~> 1.4', require: 'sinatra/base'
 gem 'sinatra-contrib',  '~> 1.4'
 gem 'rubyzip',          '~> 1.1'
 
+gem 'sidekiq', '~> 3.5.0'
 gem 'unicorn'
 
 group :test, :development do

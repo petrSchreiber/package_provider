@@ -8,7 +8,7 @@ describe PackageProvider::RepositoryCacheList do
     FileUtils.mkdir_p(path)
     File.open("#{path}/repository_cache.yml", 'w+') do |f|
       f.puts YAML.dump(
-        test: { local_repo_paths: { repo_url => path } })
+        test: { repositories: { repo_url => path } })
     end
   end
 
